@@ -1,16 +1,6 @@
 #include<stdio.h>
 #include<iostream>
-void maxmin(int data[],int *max,int *min){
-	int i = 0;
-	*max = 0;
-	*min = 100;
 
-	while(data[i] != -1){
-		if(data[i]>*max) *max=data[i];
-		if(data[i],*min) *min=data[i];
-		i++;
-	}
-}
 typedef struct
 {
 	char name[30];
