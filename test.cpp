@@ -1,31 +1,52 @@
 #include<stdio.h>
 #include<iostream>
 
-typedef struct
+
+enum
 {
-	char name[30];
-	unsigned int age;
-	unsigned int sex;
-} database;
+	OLYMPIC_NON,
+	OLYMPIC_SUM,
+	OLYMPIC_WIN,
+};
+
+int olympic(int year);
+
 
 int main(void)
 {	
-	database data[3];
-	for(int i = 0; i < 3; i++){
-		std::cout << i+1 << "age" <<std::endl;	
-		std::cin >> data[i].age;
-		std::cout << i+1 << "name" <<std::endl;	
-		std::cin >> data[i].name;
-		std::cout << i+1 << "sex" <<std::endl;	
-		std::cin >> data[i].sex;
-	}
-	for(int i = 0; i < 3; i++){
-		std::cout << "age,name,sex" << data[i].age << data[i].name << data[i].sex << std::endl; 
-	}
-
+	int year,hold;
+	std::cin >> year;
+	hold = olympic(year);
+	
+	switch (hold)
+	{
+	case OLYMPIC_NON:
+		std::cout << "closed" << std::endl;
+		break;
+	case OLYMPIC_SUM:
+		std::cout << "summer olympic will be hold" << std::endl;
+		break;
+	case OLYMPIC_WIN:
+		std::cout << "winter olympic will be hold" << std::endl;
+		break;
+	};
 
 	return 0;
 	
 }
 
+int olympic(int year)
+{
+	if(year%2==0)
+	{
+		if(year%4==0)
+		{
+			return OLYMPIC_SUM;
+		}
+		else return OLYMPIC_WIN;
+	}else
+	{
+		return OLYMPIC_NON;
+	}
 
+}
